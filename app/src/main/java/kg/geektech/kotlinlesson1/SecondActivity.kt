@@ -12,13 +12,17 @@ import kg.geektech.kotlinlesson1.databinding.ActivitySecondBinding
 class SecondActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySecondBinding
 
+    companion object{
+        val KEY = "key1"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
-        if (intent.hasExtra("key1")) {
+        if (intent.hasExtra(KEY)) {
             setContent()
         }
         btnSend()
@@ -26,7 +30,7 @@ class SecondActivity : AppCompatActivity() {
 
     }
     private fun setContent() {
-        binding.etText2.setText(intent.getStringExtra("key1").toString())
+        binding.etText2.setText(intent.getStringExtra(KEY).toString())
     }
 
     private fun btnSend() {
@@ -36,7 +40,7 @@ class SecondActivity : AppCompatActivity() {
             } else {
                 val intent = Intent()
                 val etText = binding.etText2.text.toString()
-                intent.putExtra("key1", etText)
+                intent.putExtra(KEY, etText)
                 setResult(Activity.RESULT_OK, intent)
                 finish()
             }

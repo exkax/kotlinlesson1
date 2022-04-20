@@ -20,10 +20,14 @@ import kg.geektech.kotlinlesson1.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
+    companion object{
+         val KEY = "key1"
+    }
+
 
     private val startActivityForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
         if(it.resultCode == Activity.RESULT_OK && it.data != null){
-            val data = it.data?.getStringExtra("key1")
+            val data = it.data?.getStringExtra(KEY)
             binding.etText.setText(data)
         }
     }
@@ -44,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 val intent = Intent(this, SecondActivity::class.java)
                 val etText = binding.etText.text.toString()
-                intent.putExtra("key1", etText)
+                intent.putExtra(KEY, etText)
                 startActivityForResult.launch(intent)
             }
         })
