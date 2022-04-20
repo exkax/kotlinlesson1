@@ -25,7 +25,6 @@ class SecondActivity : AppCompatActivity() {
 
 
     }
-
     private fun setContent() {
         binding.etText2.setText(intent.getStringExtra("key1").toString())
     }
@@ -33,7 +32,7 @@ class SecondActivity : AppCompatActivity() {
     private fun btnSend() {
         binding.btnSend2.setOnClickListener(View.OnClickListener {
             if (TextUtils.isEmpty(binding.etText2.text.toString())) {
-                Toast.makeText(this, "Empty field not allowed!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, (R.string.error), Toast.LENGTH_SHORT).show()
             } else {
                 val intent = Intent()
                 val etText = binding.etText2.text.toString()
@@ -43,6 +42,8 @@ class SecondActivity : AppCompatActivity() {
             }
         })
     }
+
+
 
 
 }

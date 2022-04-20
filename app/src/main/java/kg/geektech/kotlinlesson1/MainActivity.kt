@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     private fun btnSend() {
         binding.btnSend.setOnClickListener(View.OnClickListener {
             if (binding.etText.text.toString().isEmpty()) {
-                Toast.makeText(this, "Empty field not allowed!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.error), Toast.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(this, SecondActivity::class.java)
                 val etText = binding.etText.text.toString()

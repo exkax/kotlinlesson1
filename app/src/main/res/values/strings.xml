@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">kotlinlesson1</string>
+    <string name="error">Empty field not allowed!</string>
 </resources>
